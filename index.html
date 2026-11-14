@@ -1,2 +1,360 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>Loading</title></head><body>Loading</body></html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>O.Nursing — بنك أسئلة الموضوع الثامن: الضغط النفسي وإدارته</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --burg:#7C2D3E; --burg-d:#5C1F2D; --gold:#C9A227; --gold-l:#F5ECD7;
+  --cream:#FBF7F0; --warm:#F9EFEA; --ink:#2b2b2b; --mut:#8a7a72;
+  --green:#2e7d4f; --green-bg:#e6f4ec; --red:#b3261e; --red-bg:#fdecea;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{font-family:'Tajawal',sans-serif; background:var(--cream); color:var(--ink); min-height:100vh;}
+.wrap{max-width:760px; margin:0 auto; padding:0 18px 40px; width:100%;}
+/* header */
+header{padding:20px 0 8px; text-align:center;}
+.brand{font-family:'Great Vibes',cursive; font-size:34px; color:var(--burg); line-height:1;}
+.brand .dot{color:#FF8A5F;}
+.brand .star{color:var(--gold); font-size:20px; vertical-align:middle;}
+.sub{font-size:13px; color:var(--mut); margin-top:4px;}
+.rule{height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:12px auto 0; max-width:420px;}
+/* cards */
+.card{background:#fff; border:1px solid #ead9c9; border-radius:16px; padding:20px; margin-top:16px; box-shadow:0 2px 10px rgba(124,45,62,.06);}
+h1{font-size:21px; color:var(--burg); line-height:1.5;}
+h1 .en{font-size:15px; color:var(--mut); display:block; font-weight:500;}
+.meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;}
+.pill{background:var(--gold-l); color:var(--burg-d); border:1px solid var(--gold); border-radius:20px; padding:4px 12px; font-size:13px; font-weight:700;}
+.pill.soft{background:var(--warm); border-color:#e5c9c0;}
+/* level filter */
+.levels{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;}
+.lvl{border:1.5px solid var(--gold); background:#fff; color:var(--burg); border-radius:20px; padding:7px 16px; font-size:14px; font-weight:700; cursor:pointer; font-family:inherit;}
+.lvl.on{background:var(--burg); color:#fff; border-color:var(--burg);}
+.btn{display:block; width:100%; background:var(--burg); color:#fff; border:none; border-radius:12px; padding:14px; font-size:17px; font-weight:800; cursor:pointer; font-family:inherit; margin-top:16px;}
+.btn:hover{background:var(--burg-d);}
+.btn.ghost{background:#fff; color:var(--burg); border:1.5px solid var(--burg); margin-top:10px;}
+.btn:disabled{opacity:.5; cursor:default;}
+.small{font-size:13px; color:var(--mut); text-align:center; margin-top:10px; line-height:1.7;}
+/* quiz */
+.prog{height:8px; background:#eee; border-radius:8px; overflow:hidden; margin-top:16px;}
+.prog i{display:block; height:100%; background:linear-gradient(90deg,var(--gold),var(--burg)); width:0%; transition:width .3s;}
+.qtop{display:flex; justify-content:space-between; align-items:center; margin-top:14px; font-size:13px; color:var(--mut); font-weight:700;}
+.badge{font-size:12px; font-weight:800; border-radius:12px; padding:3px 10px;}
+.badge.easy{background:#e6f4ec; color:var(--green);}
+.badge.med{background:#fdf3d7; color:#8a6d00;}
+.badge.hard{background:#fdecea; color:var(--red);}
+.q{font-size:18px; font-weight:700; line-height:1.8; margin-top:12px; direction:ltr; text-align:left;}
+.q .ar-note{font-size:14px; color:var(--mut); font-weight:500; direction:rtl; text-align:right; display:block; margin-top:4px;}
+.opts{margin-top:14px; display:flex; flex-direction:column; gap:10px;}
+.opt{border:1.5px solid #e5d5c8; background:#fff; border-radius:12px; padding:12px 14px; font-size:16px; cursor:pointer; text-align:left; direction:ltr; font-family:inherit; line-height:1.5;}
+.opt:hover{border-color:var(--gold);}
+.opt.correct{border-color:var(--green); background:var(--green-bg);}
+.opt.wrong{border-color:var(--red); background:var(--red-bg);}
+.opt:disabled{cursor:default;}
+.tf{display:flex; gap:10px; margin-top:14px;}
+.tf .opt{flex:1; text-align:center; font-weight:800; font-size:17px;}
+.hintbtn{background:var(--gold-l); color:var(--burg-d); border:1px solid var(--gold); border-radius:10px; padding:8px 14px; font-size:14px; font-weight:700; cursor:pointer; font-family:inherit; margin-top:14px;}
+.hint{display:none; background:#fffbe6; border:1px dashed var(--gold); border-radius:10px; padding:10px 14px; margin-top:10px; font-size:14px; line-height:1.8;}
+.hint.show{display:block;}
+.explain{display:none; border-radius:10px; padding:12px 14px; margin-top:12px; font-size:14.5px; line-height:1.9;}
+.explain.show{display:block;}
+.explain.ok{background:var(--green-bg); border:1px solid var(--green);}
+.explain.no{background:var(--red-bg); border:1px solid var(--red);}
+.explain b{color:var(--burg);}
+.model{display:none; background:var(--warm); border:1px solid #e5c9c0; border-radius:10px; padding:12px 14px; margin-top:12px; font-size:14.5px; line-height:1.9; white-space:pre-line;}
+.model.show{display:block;}
+textarea{width:100%; min-height:90px; border:1.5px solid #e5d5c8; border-radius:12px; padding:12px; font-family:inherit; font-size:15px; margin-top:14px; direction:ltr;}
+/* results */
+.score-ring{width:150px; height:150px; margin:10px auto; position:relative;}
+.score-ring svg{transform:rotate(-90deg);}
+.score-ring .pct{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:34px; font-weight:800; color:var(--burg);}
+.res-line{text-align:center; font-size:16px; line-height:2;}
+.res-line b{color:var(--burg);}
+table.res{width:100%; border-collapse:collapse; margin-top:12px; font-size:14px;}
+table.res td, table.res th{border:1px solid #ead9c9; padding:8px; text-align:center;}
+table.res th{background:var(--burg); color:#fff;}
+.hidden{display:none !important;}
+footer{text-align:center; font-size:12px; color:var(--mut); margin-top:26px; line-height:1.8;}
+/* O.Nursing — QR-only: no copying, no printing */
+body{ -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; }
+textarea{ -webkit-user-select:text; -moz-user-select:text; -ms-user-select:text; user-select:text; }
+#print-note{ display:none; }
+@media print{ body *{ display:none !important; } #print-note{ display:block !important; text-align:center; font-size:16px; font-weight:700; color:#7c2d3e; margin-top:40%; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><span class="star">✦</span> O<span class="dot">.</span>Nursing <span class="star">✦</span></div>
+    <div class="sub">بنك أسئلة — الترم الثاني • تمريض الصحة النفسية</div>
+    <div class="rule"></div>
+  </header>
+
+  <!-- HOME -->
+  <div id="home" class="card">
+    <h1>الموضوع الثامن: الضغط النفسي وإدارته<span class="en">Topic 8 — Stress and Stress Management</span></h1>
+    <div class="meta">
+      <span class="pill">40 سؤال</span>
+      <span class="pill soft">اختيار من متعدد + صح وخطأ + مقالي</span>
+      <span class="pill soft">متدرجة: سهل ← متوسط ← صعب</span>
+    </div>
+    <p style="margin-top:12px; font-size:14.5px; line-height:1.9;">أسئلة إضافية شاملة كل أفكار الموضوع: تعريفات الضغط والكرب والمسببات، العوامل المهيئة التلاتة، المراحل التلاتة للاستجابة البيولوجية وأمراض التأقلم، المرونة النفسية والـ 13 طريقة للحفاظ على الصحة النفسية، نصايح تقدير الذات التمانية، والدعم المتاح — مع <b>تلميح</b> لكل سؤال وشرح بعد الإجابة.</p>
+    <div class="levels" id="levels">
+      <button class="lvl on" data-lvl="all">الكل (40)</button>
+      <button class="lvl" data-lvl="easy">سهل (15)</button>
+      <button class="lvl" data-lvl="med">متوسط (15)</button>
+      <button class="lvl" data-lvl="hard">صعب (10)</button>
+    </div>
+    <button class="btn" id="btn-start">ابدأ الأسئلة ←</button>
+    <button class="btn ghost hidden" id="btn-resume">كمّل من حيث توقفت</button>
+    <div class="small" id="home-stats"></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz" class="card hidden">
+    <div class="prog"><i id="prog-fill"></i></div>
+    <div class="qtop"><span id="q-count"></span><span id="q-badge"></span><span id="q-score"></span></div>
+    <div class="q" id="q-stem"></div>
+    <div id="q-body"></div>
+    <button class="hintbtn" id="btn-hint">💡 تلميح</button>
+    <div class="hint" id="q-hint"></div>
+    <div class="explain" id="q-explain"></div>
+    <div class="model" id="q-model"></div>
+    <button class="btn hidden" id="btn-next">السؤال التالي ←</button>
+    <button class="btn hidden" id="btn-finish">عرض النتيجة</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results" class="card hidden" style="text-align:center;">
+    <h1>النتيجة</h1>
+    <div class="score-ring">
+      <svg width="150" height="150" viewBox="0 0 150 150">
+        <circle cx="75" cy="75" r="65" fill="none" stroke="#eee" stroke-width="10"/>
+        <circle id="ring-fg" cx="75" cy="75" r="65" fill="none" stroke="#7C2D3E" stroke-width="10" stroke-linecap="round" stroke-dasharray="408" stroke-dashoffset="408"/>
+      </svg>
+      <div class="pct" id="res-pct">0%</div>
+    </div>
+    <div class="res-line" id="res-line"></div>
+    <table class="res" id="res-table"></table>
+    <button class="btn" id="btn-retry">إعادة الأسئلة</button>
+    <button class="btn ghost" id="btn-home">رجوع للموضوع الثامن</button>
+  </div>
+
+  <footer>O.Nursing • Dr: Abdullah Shawky<br>الأسئلة من محتوى المحاضرة وأسئلة امتحانات دبلوم المعاهد الفنية الصحية<br><b style="color:#7c2d3e;">الأسئلة خاصة بـ O.Nursing — ممنوع النسخ والنقل</b></footer>
+  <div id="print-note">الأسئلة خاصة بـ O.Nursing — ممنوع النسخ والنقل</div>
+</div>
+
+<script>
+const QUESTIONS = [
+  {"id": 1, "level": "easy", "type": "mcq", "q": "Stress is:", "options": ["A physical and emotional state always present in the person as a result of living.", "A rare disease that affects only sick people.", "Always negative and harmful.", "A state that appears only in hospitals."], "correct": 0, "hint": "Always present — a result of living itself.", "explain": "<b>Stress</b> is a physical and emotional state <b>always present</b> in the person as a result of living; it is intensified by change or threat."},
+  {"id": 2, "level": "easy", "type": "mcq", "q": "Complete freedom from stress is:", "options": ["Distress.", "Death or a nonexistent state.", "Fixation.", "Aggression."], "correct": 1, "hint": "No stress at all = death.", "explain": "<b>Complete freedom from stress is death or a nonexistent state.</b> This exact question appears in the bank (Unit 7) and in diploma exams."},
+  {"id": 3, "level": "easy", "type": "mcq", "q": "Distress is:", "options": ["Positive, helpful stress.", "Negative, noxious, unpleasant, or damaging stress.", "The same as relaxation.", "A type of medication."], "correct": 1, "hint": "Distress = the bad kind of stress.", "explain": "<b>Distress</b> is <b>negative, noxious, unpleasant, or damaging</b> stress."},
+  {"id": 4, "level": "easy", "type": "mcq", "q": "Distress occurs when:", "options": ["Needs can't be met or when well-being and integrity are threatened.", "The person is happy and relaxed.", "The person exercises daily.", "The person sleeps well."], "correct": 0, "hint": "Unmet needs or threatened well-being.", "explain": "<b>Distress</b> occurs when <b>needs can't be met</b> or when <b>well-being and integrity are threatened</b>."},
+  {"id": 5, "level": "easy", "type": "mcq", "q": "Stressors are:", "options": ["Tension-producing internal or external stimuli, agents, or factors placing a demand upon the body.", "Medications for stress.", "Relaxation techniques.", "Types of mental illness."], "correct": 0, "hint": "Stimuli that place a demand on the body.", "explain": "<b>Stressors</b> are <b>tension-producing internal or external stimuli, agents, or factors</b> placing a demand upon the body, causing intensification of the stress state."},
+  {"id": 6, "level": "easy", "type": "mcq", "q": "The capacity to stay mentally well during difficult times is called:", "options": ["Resilience.", "Resistance.", "Exhaustion.", "Distress."], "correct": 0, "hint": "Resilience = staying well in difficult times.", "explain": "<b>Resilience</b> is the capacity to stay mentally well during difficult times in life (bank Unit 7)."},
+  {"id": 7, "level": "easy", "type": "mcq", "q": "The physiological responses of the 'fight or flight' syndrome are initiated in:", "options": ["The alarm reaction stage.", "The stage of resistance.", "The stage of exhaustion.", "None of the stages."], "correct": 0, "hint": "Fight or flight starts in the ALARM stage.", "explain": "The <b>fight or flight</b> responses are initiated in the <b>alarm reaction stage</b> — not in resistance (resistance only uses them as a defense)."},
+  {"id": 8, "level": "easy", "type": "mcq", "q": "Which stage comes FIRST in the biological response to stress?", "options": ["Alarm reaction.", "Resistance.", "Exhaustion.", "Adaptation."], "correct": 0, "hint": "Alarm first, then resistance, then exhaustion.", "explain": "The order is: <b>1 Alarm reaction → 2 Resistance → 3 Exhaustion</b>."},
+  {"id": 9, "level": "easy", "type": "mcq", "q": "Which stage comes LAST in the biological response to stress?", "options": ["Alarm reaction.", "Resistance.", "Exhaustion.", "Relaxation."], "correct": 2, "hint": "Exhaustion is the third and last stage.", "explain": "The order is: <b>1 Alarm → 2 Resistance → 3 Exhaustion</b>."},
+  {"id": 10, "level": "easy", "type": "mcq", "q": "Which of the following is a predisposing factor of stress?", "options": ["Genetic influences.", "Past experiences.", "Existing conditions.", "All of the above."], "correct": 3, "hint": "All three are predisposing factors.", "explain": "The three predisposing factors are <b>genetic influences, past experiences, and existing conditions</b>."},
+  {"id": 11, "level": "easy", "type": "mcq", "q": "Physical activity is good for mental health because it:", "options": ["Releases endorphins — 'feel-good' hormones.", "Increases stress hormones only.", "Makes you tired forever.", "Has no effect on mood."], "correct": 0, "hint": "Endorphins — the feel-good hormones.", "explain": "Physical activity releases <b>endorphins — 'feel-good' hormones</b> that improve mood, and it reduces depression and anxiety."},
+  {"id": 12, "level": "easy", "type": "mcq", "q": "Which of the following helps to increase self-esteem?", "options": ["Acknowledging your positive qualities and things you are good at.", "Comparing yourself to other people.", "Striving for perfection.", "Allowing people to treat you with a lack of respect."], "correct": 0, "hint": "Acknowledge what you are good at.", "explain": "<b>Acknowledging your positive qualities and things you are good at</b> is one of the eight self-esteem tips (bank Unit 7)."},
+  {"id": 13, "level": "easy", "type": "mcq", "q": "Mindfulness is a way of paying attention to:", "options": ["The present moment.", "The past only.", "The future only.", "Other people's thoughts."], "correct": 0, "hint": "The present moment.", "explain": "<b>Mindfulness</b> is a way of paying attention to the <b>present moment</b>, using meditation, breathing exercises and yoga."},
+  {"id": 14, "level": "easy", "type": "mcq", "q": "Cognitive behavior therapy (CBT) aims to identify connections between:", "options": ["Thoughts, feelings and behavior.", "Blood and bile.", "Past and future lives.", "Doctors and nurses."], "correct": 0, "hint": "Thoughts, feelings, behavior.", "explain": "<b>CBT</b> aims to identify connections between your <b>thoughts, feelings and behavior</b>, and help you develop practical skills to manage them."},
+  {"id": 15, "level": "easy", "type": "tf", "q": "All stress is negative.", "correct": false, "hint": "Stress has a positive side too.", "explain": "FALSE — <b>all stress isn't negative</b>. Stress helps maintain equilibrium and increases motivation, learning, creativity, development, productivity, and satisfaction."},
+  {"id": 16, "level": "med", "type": "mcq", "q": "Stress reactions are purposeful and initially protective. Their manifestations are:", "options": ["Physiological and psychological, structural and functional, overt and covert.", "Only physical.", "Only psychological.", "Only visible."], "correct": 0, "hint": "Four pairs: physiological/psychological, structural/functional, overt/covert.", "explain": "Stress manifestations are <b>physiological and psychological, structural and functional, overt and covert</b>."},
+  {"id": 17, "level": "med", "type": "mcq", "q": "Each period of distress leaves psychological and emotional wear and tear, which is:", "options": ["Sometimes irreversible.", "Always easily reversed.", "Never harmful.", "Only physical."], "correct": 0, "hint": "Sometimes irreversible.", "explain": "Each period of distress leaves wear and tear which is <b>sometimes irreversible</b>."},
+  {"id": 18, "level": "med", "type": "mcq", "q": "The exaggerated stress state occurs when:", "options": ["Stressors are excessive or intense, limits of adaptation are exceeded, and the person cannot cope.", "The person is fully relaxed.", "Stressors are mild and brief.", "The person has no stressors at all."], "correct": 0, "hint": "Excessive stressors + exceeded limits + cannot cope.", "explain": "The exaggerated stress state occurs when <b>stressors are excessive or intense, limits of adaptation are exceeded, and the person cannot cope</b> with the stressor's demands."},
+  {"id": 19, "level": "med", "type": "mcq", "q": "What is considered a stressor by one person may be considered:", "options": ["Pleasurable by another.", "A disease by another.", "A medicine by another.", "Nothing by another."], "correct": 0, "hint": "One person's stressor is another's pleasure.", "explain": "What is considered a stressor by one person <b>may be considered pleasurable by another</b>."},
+  {"id": 20, "level": "med", "type": "mcq", "q": "Genetic influences as a predisposing factor include:", "options": ["Family history of physical and psychological conditions, and temperament.", "Only the person's age.", "Only the person's job.", "Only the person's diet."], "correct": 0, "hint": "Family history + temperament.", "explain": "<b>Genetic influences</b> include family history of physical and psychological conditions (strengths and weaknesses) and the individual's <b>temperament</b> — behavioral characteristics present at birth."},
+  {"id": 21, "level": "med", "type": "mcq", "q": "Past experiences as a predisposing factor include:", "options": ["Previous exposure to the stressor, learned coping responses, and degree of adaptation.", "Only the person's age.", "Only the person's wealth.", "Only the person's height."], "correct": 0, "hint": "Previous exposure + learned coping + degree of adaptation.", "explain": "<b>Past experiences</b> include previous exposure to the stressor or other stressors, <b>learned coping responses</b>, and degree of adaptation to previous stressors."},
+  {"id": 22, "level": "med", "type": "mcq", "q": "In the stage of resistance, the individual:", "options": ["Uses the physiological responses of the first stage as a defense to adapt to the stressor.", "Loses all adaptive energy.", "Develops diseases of adaptation immediately.", "Stops responding completely."], "correct": 0, "hint": "First-stage responses become the defense.", "explain": "In the <b>stage of resistance</b>, the individual uses the physiological responses of the first stage <b>as a defense</b> in the attempt to adapt. If adaptation occurs, the third stage is prevented or delayed."},
+  {"id": 23, "level": "med", "type": "mcq", "q": "Diseases of adaptation that may occur in the stage of exhaustion include:", "options": ["Headaches, mental disorders, coronary artery disease, ulcers, colitis.", "Only headaches.", "Only colds and flu.", "None — no diseases occur."], "correct": 0, "hint": "Five examples: headaches, mental disorders, coronary artery disease, ulcers, colitis.", "explain": "Diseases of adaptation include <b>headaches, mental disorders, coronary artery disease, ulcers, and colitis</b>."},
+  {"id": 24, "level": "med", "type": "mcq", "q": "If you have trouble sleeping, negative feelings are likely to be:", "options": ["Exaggerated, and you may become more irritable and less confident.", "Reduced to zero.", "Completely gone.", "Replaced by happiness."], "correct": 0, "hint": "Poor sleep exaggerates negative feelings.", "explain": "Trouble sleeping can seriously affect mental wellbeing: negative feelings are likely to be <b>exaggerated</b>, and you may become more irritable and less confident."},
+  {"id": 25, "level": "med", "type": "mcq", "q": "Keeping a mood diary helps you to:", "options": ["Work out what affects your mental wellbeing and recognize changes in your mood.", "Forget everything.", "Avoid all people.", "Sleep less."], "correct": 0, "hint": "A mood diary reveals your triggers.", "explain": "A <b>mood diary</b> helps you work out what affects your mental wellbeing and recognize changes in your mood — for example, certain foods, people, or seasons like winter."},
+  {"id": 26, "level": "med", "type": "mcq", "q": "Relaxation is:", "options": ["Not the same as recreation.", "The same as recreation.", "The same as working hard.", "The same as sleeping only."], "correct": 0, "hint": "Relaxation ≠ recreation — hobbies can become stressful if excessive.", "explain": "<b>Relaxation is not the same as recreation.</b> Hobbies and other activities can become stressful if they become excessive."},
+  {"id": 27, "level": "med", "type": "mcq", "q": "Under compulsory treatment, the doctor in charge:", "options": ["Can override your preferences if another treatment is most appropriate.", "Must always follow your preferences.", "Cannot treat you at all.", "Must stop all treatment."], "correct": 0, "hint": "Compulsory treatment can override preferences.", "explain": "Under <b>compulsory treatment</b>, the doctor in charge can <b>override your preferences</b> if they think another treatment is the most appropriate one at the time."},
+  {"id": 28, "level": "med", "type": "mcq", "q": "A crisis plan, or advance decision, tells people:", "options": ["What you want to happen if you are in crisis.", "What you ate yesterday.", "Your bank password.", "Nothing."], "correct": 0, "hint": "What you want if you are in crisis.", "explain": "A <b>crisis plan, or advance decision</b>, tells people <b>what you want to happen if you are in crisis</b> — reducing stress and worries about what will happen to you or your family."},
+  {"id": 29, "level": "med", "type": "mcq", "q": "Peer support means:", "options": ["Talking to people who have been through similar experiences.", "Talking only to doctors.", "Avoiding all people.", "Paying for therapy."], "correct": 0, "hint": "People with similar experiences — e.g., in a support group.", "explain": "<b>Peer support</b> means talking to people who have been through <b>similar experiences</b>, for example in a support group. Online, think carefully about what information you share."},
+  {"id": 30, "level": "med", "type": "mcq", "q": "Prescription medication for a mental health problem:", "options": ["Doesn't cure the problem, but aims to ease the most distressing symptoms.", "Cures the problem completely.", "Has no side effects at all.", "Should be taken without a doctor."], "correct": 0, "hint": "Eases symptoms — doesn't cure.", "explain": "These drugs <b>don't cure</b> mental health problems, but aim to <b>ease the most distressing symptoms</b>. They can have side effects, and the doctor should discuss advantages, disadvantages and alternatives."},
+  {"id": 31, "level": "hard", "type": "tf", "q": "The fight-or-flight responses are initiated in the stage of resistance.", "correct": false, "hint": "TRAP — fight or flight starts in the ALARM stage.", "explain": "FALSE — the fight-or-flight responses are initiated in the <b>alarm reaction stage</b>. In resistance they are only USED as a defense. The bank (Unit 7) states this as a false statement — a repeated trap."},
+  {"id": 32, "level": "hard", "type": "tf", "q": "Stress helps to maintain equilibrium and increase motivation, learning, creativity, development, productivity, and satisfaction.", "correct": true, "hint": "The positive side of stress.", "explain": "TRUE — on the positive side, stress helps maintain <b>equilibrium</b> and increases motivation, learning, creativity, development, productivity, and satisfaction."},
+  {"id": 33, "level": "hard", "type": "tf", "q": "What is considered a stressor by one person may be considered pleasurable by another.", "correct": true, "hint": "Stressors are subjective.", "explain": "TRUE — a stressor is subjective: what stresses one person may please another. The amount of stress can't be judged from the stressor alone."},
+  {"id": 34, "level": "hard", "type": "tf", "q": "Resilience is the capacity to stay mentally well during difficult times in life.", "correct": true, "hint": "Resilience — the bank's own true/false.", "explain": "TRUE — <b>resilience</b> is the capacity to stay mentally well during difficult times (bank Unit 7)."},
+  {"id": 35, "level": "hard", "type": "tf", "q": "Relaxation is the same as recreation.", "correct": false, "hint": "Relaxation ≠ recreation.", "explain": "FALSE — <b>relaxation is not the same as recreation</b>. Hobbies can become stressful if they become excessive."},
+  {"id": 36, "level": "hard", "type": "mcq", "q": "The person's survival and health status depends on:", "options": ["The intensity, duration, and location of the stress and the adaptive capacity of the person.", "Only the person's age.", "Only the person's wealth.", "Only the stressor's name."], "correct": 0, "hint": "Intensity + duration + location + adaptive capacity.", "explain": "Survival and health depend on the <b>intensity, duration, and location</b> of the stress and the <b>adaptive capacity</b> of the person."},
+  {"id": 37, "level": "hard", "type": "mcq", "q": "Which of the following is NOT one of the eight self-esteem tips?", "options": ["Try not to compare yourself to other people.", "Don't strive for perfection.", "Spend time with supportive people.", "Compare yourself to others every day."], "correct": 3, "hint": "Comparing yourself is what the tips tell you NOT to do.", "explain": "The eight tips include <b>try not to compare yourself to others</b> — comparing yourself daily is the opposite of the advice."},
+  {"id": 38, "level": "hard", "type": "mcq", "q": "Which talking therapy is particularly effective for low self-esteem and anxiety-based conditions?", "options": ["Cognitive behavior therapy (CBT).", "Person-centered therapy only.", "No talking therapy helps.", "Only medication helps."], "correct": 0, "hint": "CBT — particularly effective for low self-esteem and anxiety.", "explain": "<b>CBT</b> has been shown to be particularly effective for <b>low self-esteem and anxiety-based conditions</b>."},
+  {"id": 39, "level": "hard", "type": "mcq", "q": "If your problems stem from early life experiences, which talking therapies might help address them more thoroughly?", "options": ["Person-centered therapy, psychodynamic therapy, or interpersonal psychotherapy (IPT).", "Only CBT.", "Only medication.", "No therapy helps."], "correct": 0, "hint": "Early-life problems → person-centered, psychodynamic, or IPT.", "explain": "For problems stemming from <b>early life experiences</b>, person-centered therapy, psychodynamic therapy, or interpersonal psychotherapy (IPT) can help address them more thoroughly."},
+  {"id": 40, "level": "hard", "type": "written", "q": "List the three stages of stress as a biological response, the five diseases of adaptation, and the 13 ways to stay mentally well.", "model": "Stages: 1) Alarm reaction stage — fight-or-flight responses are initiated. 2) Stage of resistance — first-stage responses used as a defense to adapt; if adaptation occurs, stage 3 is prevented or delayed. 3) Stage of exhaustion — prolonged exposure, adaptive energy depleted; without intervention, exhaustion and even death.\nDiseases of adaptation: headaches, mental disorders, coronary artery disease, ulcers, colitis.\n13 ways: 1) Talk about the way you feel. 2) Build healthy relationships. 3) Look after your physical health. 4) Sleep. 5) Diet. 6) Physical activity. 7) Do something you enjoy. 8) Do something for someone else. 9) Set yourself a challenge. 10) Relax. 11) Identify mood triggers. 12) Look after yourself during difficult times. 13) Learn to accept yourself.", "hint": "Three stages + five diseases + thirteen ways — count them all.", "explain": "The three stages are <b>Alarm, Resistance, and Exhaustion</b>; the diseases of adaptation are <b>headaches, mental disorders, coronary artery disease, ulcers, and colitis</b>; and the 13 ways run from talking about your feelings to learning to accept yourself."}
+];
+</script>
+
+<script>
+const LVL = {easy:"سهل", med:"متوسط", hard:"صعب"};
+const LVLCLS = {easy:"easy", med:"med", hard:"hard"};
+const KEY = "onursing_topic8_progress_v1";
+let selectedLvl = "all";
+let queue = [], idx = 0, score = 0, answered = 0, results = [];
+let levelStats = {easy:{t:0,c:0}, med:{t:0,c:0}, hard:{t:0,c:0}};
+let locked = false;
+
+function $(id){ return document.getElementById(id); }
+function loadProg(){ try{ return JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ return {}; } }
+function saveProg(p){ try{ localStorage.setItem(KEY, JSON.stringify(p)); }catch(e){} }
+
+function refreshHome(){
+  const p = loadProg();
+  const done = p.done || {}, correct = p.correct || {};
+  const n = Object.keys(done).length;
+  const c = Object.keys(correct).length;
+  $("home-stats").textContent = n ? ("تقدّمك: أجبت على " + n + " سؤال من 40 — إجابات صحيحة: " + c + (p.best!=null ? (" • أفضل نتيجة: " + p.best + "%") : "")) : "ابدأ من السهل وتدرّج — كل سؤال معه تلميح وشرح.";
+  $("btn-resume").classList.toggle("hidden", !n || n>=40);
+}
+document.querySelectorAll("#levels .lvl").forEach(b=>{
+  b.addEventListener("click", ()=>{
+    document.querySelectorAll("#levels .lvl").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on"); selectedLvl = b.dataset.lvl;
+  });
+});
+$("btn-start").addEventListener("click", ()=>startQuiz(false));
+$("btn-resume").addEventListener("click", ()=>startQuiz(true));
+
+function buildQueue(resume){
+  let pool = QUESTIONS.filter(q => selectedLvl==="all" || q.level===selectedLvl);
+  if(resume){
+    const p = loadProg(); const done = p.done || {};
+    pool = pool.filter(q => !done[q.id]);
+    if(!pool.length){ pool = QUESTIONS.filter(q => selectedLvl==="all" || q.level===selectedLvl); }
+  }
+  return pool.slice();
+}
+function startQuiz(resume){
+  queue = buildQueue(resume); idx = 0; score = 0; answered = 0; results = [];
+  levelStats = {easy:{t:0,c:0}, med:{t:0,c:0}, hard:{t:0,c:0}};
+  queue.forEach(q=>{ if(q.type!=="written") levelStats[q.level].t++; });
+  $("home").classList.add("hidden"); $("results").classList.add("hidden"); $("quiz").classList.remove("hidden");
+  renderQ();
+}
+function cur(){ return queue[idx]; }
+function renderQ(){
+  const q = cur(); locked = false;
+  $("prog-fill").style.width = (idx/queue.length*100) + "%";
+  $("q-count").textContent = "سؤال " + (idx+1) + " من " + queue.length;
+  $("q-badge").innerHTML = '<span class="badge '+LVLCLS[q.level]+'">'+LVL[q.level]+'</span>';
+  $("q-score").textContent = "صح: " + score + " / " + answered;
+  $("q-stem").innerHTML = q.q + (q.ar ? '<span class="ar-note">'+q.ar+'</span>' : "");
+  $("q-hint").classList.remove("show"); $("q-hint").textContent = q.hint || "";
+  $("btn-hint").style.display = q.hint ? "" : "none";
+  const ex = $("q-explain"); ex.classList.remove("show","ok","no"); ex.innerHTML = "";
+  const mo = $("q-model"); mo.classList.remove("show"); mo.textContent = "";
+  $("btn-next").classList.add("hidden"); $("btn-finish").classList.add("hidden");
+  const body = $("q-body"); body.innerHTML = "";
+  if(q.type === "mcq"){
+    const box = document.createElement("div"); box.className = "opts";
+    q.options.forEach((op,i)=>{
+      const b = document.createElement("button"); b.className = "opt"; b.textContent = op;
+      b.addEventListener("click", ()=>answerMcq(i, b)); box.appendChild(b);
+    });
+    body.appendChild(box);
+  } else if(q.type === "tf"){
+    const box = document.createElement("div"); box.className = "tf";
+    [["True", true], ["False", false]].forEach(([label, val])=>{
+      const b = document.createElement("button"); b.className = "opt"; b.textContent = label;
+      b.addEventListener("click", ()=>answerTf(val, b)); box.appendChild(b);
+    });
+    body.appendChild(box);
+  } else if(q.type === "written"){
+    const ta = document.createElement("textarea"); ta.placeholder = "اكتب إجابتك هنا…";
+    body.appendChild(ta);
+    const b = document.createElement("button"); b.className = "btn"; b.textContent = "أظهر الإجابة النموذجية";
+    b.addEventListener("click", ()=>{
+      if(locked) return; locked = true;
+      mo.textContent = q.model; mo.classList.add("show");
+      ex.innerHTML = "<b>الشرح:</b> " + q.explain; ex.classList.add("show","ok");
+      b.disabled = true; showNav();
+    });
+    body.appendChild(b);
+  }
+}
+$("btn-hint").addEventListener("click", ()=>{ $("q-hint").classList.toggle("show"); });
+function markProgress(id, ok){
+  const p = loadProg(); p.done = p.done || {}; p.correct = p.correct || {};
+  p.done[id] = true; if(ok) p.correct[id] = true; saveProg(p);
+}
+function finishAnswer(ok){
+  answered++; if(ok) score++;
+  markProgress(cur().id, ok);
+  results.push({id:cur().id, ok:ok});
+  $("q-score").textContent = "صح: " + score + " / " + answered;
+  showNav();
+}
+function showNav(){
+  if(idx < queue.length-1){ $("btn-next").classList.remove("hidden"); }
+  else { $("btn-finish").classList.remove("hidden"); }
+}
+function answerMcq(i, btn){
+  if(locked) return; locked = true;
+  const q = cur(); const ok = (i === q.correct);
+  document.querySelectorAll("#q-body .opt").forEach((el, j)=>{
+    el.disabled = true;
+    if(j === q.correct) el.classList.add("correct");
+    if(j === i && !ok) el.classList.add("wrong");
+  });
+  const ex = $("q-explain");
+  ex.innerHTML = (ok ? "<b>✓ إجابة صحيحة.</b> " : "<b>✗ إجابة خاطئة.</b> الصح: <b>" + q.options[q.correct] + "</b><br>") + q.explain;
+  ex.classList.add("show", ok ? "ok" : "no");
+  finishAnswer(ok);
+}
+function answerTf(val, btn){
+  if(locked) return; locked = true;
+  const q = cur(); const ok = (val === q.correct);
+  document.querySelectorAll("#q-body .opt").forEach(el=>{
+    el.disabled = true;
+    const v = el.textContent === "True";
+    if(v === q.correct) el.classList.add("correct");
+    if(el === btn && !ok) el.classList.add("wrong");
+  });
+  const ex = $("q-explain");
+  ex.innerHTML = (ok ? "<b>✓ إجابة صحيحة.</b> " : "<b>✗ إجابة خاطئة.</b> الصح: <b>" + (q.correct ? "True" : "False") + "</b><br>") + q.explain;
+  ex.classList.add("show", ok ? "ok" : "no");
+  finishAnswer(ok);
+}
+$("btn-next").addEventListener("click", ()=>{ idx++; renderQ(); });
+$("btn-finish").addEventListener("click", showResults);
+function showResults(){
+  $("quiz").classList.add("hidden"); $("results").classList.remove("hidden");
+  const total = results.length || 1;
+  const pct = Math.round(score/total*100);
+  $("res-pct").textContent = pct + "%";
+  const ring = $("ring-fg");
+  ring.style.strokeDashoffset = 408 - (408*pct/100);
+  const p = loadProg(); if(p.best==null || pct > p.best){ p.best = pct; saveProg(p); }
+  let msg = pct>=90 ? "ممتاز! الموضوع ده بقى في جيبك." : pct>=70 ? "كويس جداً — راجع الغلطات وهتبقى ممتاز." : pct>=50 ? "بداية كويسة — راجع الشرح والغلطات وحاول تاني." : "محتاج مراجعة — ارجع للشرح في الملف وحاول تاني.";
+  $("res-line").innerHTML = "أجبت صح على <b>" + score + "</b> من <b>" + total + "</b> سؤال<br>" + msg;
+  let rows = "<tr><th>المستوى</th><th>صح</th><th>من</th></tr>";
+  const agg = {easy:{t:0,c:0}, med:{t:0,c:0}, hard:{t:0,c:0}};
+  results.forEach(r=>{ const q = QUESTIONS.find(x=>x.id===r.id); if(!q) return; agg[q.level].t++; if(r.ok) agg[q.level].c++; });
+  ["easy","med","hard"].forEach(l=>{ if(agg[l].t) rows += "<tr><td>"+LVL[l]+"</td><td>"+agg[l].c+"</td><td>"+agg[l].t+"</td></tr>"; });
+  $("res-table").innerHTML = rows;
+}
+$("btn-retry").addEventListener("click", ()=>startQuiz(false));
+$("btn-home").addEventListener("click", ()=>{
+  $("results").classList.add("hidden"); $("home").classList.remove("hidden"); refreshHome();
+
+/* O.Nursing — QR-only protection: block copying, right-click, printing */
+document.addEventListener("contextmenu", function(e){ e.preventDefault(); });
+document.addEventListener("copy", function(e){ e.preventDefault(); });
+document.addEventListener("cut", function(e){ e.preventDefault(); });
+document.addEventListener("dragstart", function(e){ e.preventDefault(); });
+document.addEventListener("keydown", function(e){
+  if((e.ctrlKey || e.metaKey) && ["c","x","u","s","p","a"].indexOf(e.key.toLowerCase()) !== -1){ e.preventDefault(); }
+});
+});
+refreshHome();
+</script>
+</body>
+</html>
